@@ -43,6 +43,34 @@ const addSchedule = async (req, res) => {
     }
 }
 
-module.exports.addSchedule = addSchedule
+ const deleteSchedule = async (req, res) => {
+    try {
+        const id = req.params.id
 
+        await Schedule.destroy({
+            where: {
+                id: id,
+            },
+        })
+
+        res.status(201).json({
+            message: 'Расписание успешно удалено',
+            status: 'success',
+            result: {
+                scheduleId: id,
+            },
+        })
+    } catch (err) {
+        res.status(500).json({
+            message:
+                'Запрос завершился неудачно:' + e.message,
+            status: 'error',
+            result: null,
+    })
+        console.log(err)
+    }
+}
+
+module.exports.addSchedule = addSchedule
+module.exports.deleteSchedule = deleteSchedule
 
