@@ -71,6 +71,58 @@ const addSchedule = async (req, res) => {
     }
 }
 
+const updateScheduleDate = async (req, res) => {
+    try {
+        const {
+            id,
+            roomId,
+            startDate,
+            endDate
+        } = req.body
+
+        console.log('roomId ', roomId)
+
+        const schedule = await Schedule.findOne({
+            where: {
+                id: id
+            },
+        })
+
+        if (!schedule) {
+            return res.status(404).json({
+                message: 'Нет расписания с таким id',
+                status: 'error',
+                result: null,
+            })
+        }
+
+        schedule.set({
+            roomId: roomId,
+            startDate: startDate,
+            endDate: endDate
+        })
+
+        await schedule.save()
+
+        res.status(201).json({
+            message: 'Запрос успешно отработал',
+            status: 'success',
+            result: {
+                schedule:   {
+                    ...schedule.dataValues
+                },
+            },
+        })
+    } catch (err) {
+        res.status(500).json({
+            message:
+                'Запрос завершился неудачно:' + err.message,
+            result: null,
+        })
+        console.log(err)
+    }
+}
+
 module.exports.addSchedule = addSchedule
 module.exports.deleteSchedule = deleteSchedule
-
+module.exports.updateScheduleDate = updateScheduleDate

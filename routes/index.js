@@ -5,6 +5,7 @@ const router = express.Router()
 
 router.get('/rooms', RoomController.getRooms)
 router.post('/schedule', ScheduleController.addSchedule)
+router.put('/schedule', ScheduleController.updateScheduleDate)
 router.delete('/schedule/:id', ScheduleController.deleteSchedule)
 
 module.exports.router = router

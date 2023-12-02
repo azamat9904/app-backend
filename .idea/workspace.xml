@@ -7,6 +7,8 @@
     <list default="true" id="67476276-5ccd-42a0-afcf-7045c4784097" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/ScheduleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ScheduleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Schedule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +59,7 @@
       <workItem from="1701422920107" duration="276000" />
       <workItem from="1701423201352" duration="983000" />
       <workItem from="1701424190741" duration="5038000" />
-      <workItem from="1701501128190" duration="4269000" />
+      <workItem from="1701501128190" duration="7751000" />
     </task>
     <servers />
   </component>

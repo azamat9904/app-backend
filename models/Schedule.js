@@ -10,6 +10,7 @@ const Schedule = sequelize.define('Schedule', {
     },
     roomId: {
         type: DataTypes.INTEGER,
+        constraints: false
     },
     name: {
         type: DataTypes.STRING
@@ -39,12 +40,14 @@ Room.hasMany(Schedule, {
     foreignKey: {
         name: 'roomId',
     },
+    constraints: false
 })
 
 Schedule.belongsTo(Room, {
     foreignKey: {
         name: 'roomId',
     },
+    constraints: false
 })
 
 
