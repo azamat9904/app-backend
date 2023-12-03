@@ -1,4 +1,5 @@
 const { Schedule } = require('../models/Schedule');
+const {DataTypes} = require("sequelize");
 
 const addSchedule = async (req, res) => {
     try {
@@ -73,18 +74,10 @@ const addSchedule = async (req, res) => {
 
 const updateScheduleDate = async (req, res) => {
     try {
-        const {
-            id,
-            roomId,
-            startDate,
-            endDate
-        } = req.body
-
-        console.log('roomId ', roomId)
-
+        const reqBody = req.body
         const schedule = await Schedule.findOne({
             where: {
-                id: id
+                id: reqBody.id
             },
         })
 
@@ -96,12 +89,16 @@ const updateScheduleDate = async (req, res) => {
             })
         }
 
-        schedule.set({
-            roomId: roomId,
-            startDate: startDate,
-            endDate: endDate
-        })
 
+        const payload = {}
+        const scheduleKeys = Object.keys(schedule.dataValues)
+        const reqBodyEntries = Object.entries(reqBody)
+
+        for(let [key, value] of reqBodyEntries)
+            if(scheduleKeys.includes(key))
+                payload[key] = value
+
+        schedule.set(payload)
         await schedule.save()
 
         res.status(201).json({
