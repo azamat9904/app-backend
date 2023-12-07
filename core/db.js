@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize')
-
-const sequelize = new Sequelize('mysql://root:h5GGbac6dBh44cHFfEc-EbDCFeCagFf6@monorail.proxy.rlwy.net:23385/railway')
+const {config } = require('../config/index')
+const sequelize = new Sequelize(`mysql://${config.DB_USERNAME}:${config.DB_PASSWORD}@monorail.proxy.rlwy.net:${config.DB_PORT}/railway`)
 
 //test
 
