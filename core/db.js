@@ -1,14 +1,6 @@
 const { Sequelize } = require('sequelize')
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: 'db.sqlite',
-    pool: {
-        max: 10,
-        min: 2,
-        idle: 10000,
-    },
-})
+const sequelize = new Sequelize('mysql://root:h5GGbac6dBh44cHFfEc-EbDCFeCagFf6@monorail.proxy.rlwy.net:23385/railway')
 
 
 module.exports.sequelize = sequelize
