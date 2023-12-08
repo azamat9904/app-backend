@@ -1,5 +1,23 @@
 const { Schedule } = require('../models/Schedule');
-const {DataTypes} = require("sequelize");
+const { Room} = require("../models/Room");
+const moment = require('moment')
+
+const isScheduleBooked = (startDate, endDate, schedules) => {
+    const newScheduleStartDate = moment(startDate).subtract(1, 'days').set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
+    const newScheduleEndDate = moment(endDate).add(1, 'days').set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
+    let isBooked = false
+    schedules.forEach((foundRoomSchedule) => {
+        const roomStartDate =  moment(foundRoomSchedule.dataValues.startDate).set({ hours: 0,minutes: 0, seconds: 0})
+        const roomEndDate = moment(foundRoomSchedule.dataValues.endDate).set({ hours: 0,minutes: 0, seconds: 0})
+
+        if(roomStartDate.isBetween(newScheduleStartDate, newScheduleEndDate) || roomEndDate.isBetween(newScheduleStartDate, newScheduleEndDate)){
+            isBooked =  true
+        }
+    })
+
+
+    return isBooked
+}
 
 const addSchedule = async (req, res) => {
     try {
@@ -11,6 +29,25 @@ const addSchedule = async (req, res) => {
                 status: false,
                 message: 'Один из ключей отсутствует ' + bodyKeys.join(','),
                 result: null,
+            })
+        }
+
+        const rooms = await Room.findAll({
+            include: [Schedule],
+            where: {
+                id: schedule.roomId
+            }
+        })
+
+        const foundRoomSchedules = rooms && Array.isArray(rooms) ? rooms[0].dataValues.Schedules : []
+
+        let isBooked = isScheduleBooked(schedule.startDate, schedule.endDate, foundRoomSchedules)
+
+        if(isBooked){
+            return res.status(403).json({
+                status: false,
+                message: 'Уже есть запись на эту дату',
+                result: null
             })
         }
 
@@ -89,6 +126,28 @@ const updateScheduleDate = async (req, res) => {
             })
         }
 
+        let roomId = reqBody.roomId || schedule.dataValues.roomId
+
+        const rooms = await Room.findAll({
+            include: [Schedule],
+            where: {
+                id: roomId
+            }
+        })
+
+        let foundRoomSchedules = rooms && Array.isArray(rooms) ? rooms[0].dataValues.Schedules : []
+
+        foundRoomSchedules = foundRoomSchedules.filter(schedule => schedule.id !== reqBody.id)
+
+        let isBooked = isScheduleBooked(reqBody.startDate, reqBody.endDate, foundRoomSchedules)
+
+        if(isBooked){
+            return res.status(403).json({
+                status: false,
+                message: 'Уже есть запись на эту дату',
+                result: null
+            })
+        }
 
         const payload = {}
         const scheduleKeys = Object.keys(schedule.dataValues)
