@@ -3,14 +3,27 @@ const { Room} = require("../models/Room");
 const moment = require('moment')
 
 const isScheduleBooked = (startDate, endDate, schedules) => {
-    const newScheduleStartDate = moment(startDate).subtract(1, 'days').set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
-    const newScheduleEndDate = moment(endDate).add(1, 'days').set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
+    const newScheduleStartDate = moment(startDate).set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
+    const newScheduleEndDate = moment(endDate).set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
     let isBooked = false
+
     schedules.forEach((foundRoomSchedule) => {
         const roomStartDate =  moment(foundRoomSchedule.dataValues.startDate).set({ hours: 0,minutes: 0, seconds: 0})
         const roomEndDate = moment(foundRoomSchedule.dataValues.endDate).set({ hours: 0,minutes: 0, seconds: 0})
 
-        if(roomStartDate.isBetween(newScheduleStartDate, newScheduleEndDate) || roomEndDate.isBetween(newScheduleStartDate, newScheduleEndDate)){
+        if(roomStartDate.isBetween(newScheduleStartDate, newScheduleEndDate) ||
+            roomStartDate.isSame(newScheduleStartDate) || roomStartDate.isSame(newScheduleEndDate) ||
+            roomEndDate.isBetween(newScheduleStartDate, newScheduleEndDate) ||
+            roomEndDate.isSame(newScheduleStartDate) || roomEndDate.isSame(newScheduleEndDate)
+        ){
+            isBooked =  true
+        }
+
+        if(newScheduleStartDate.isBetween(roomStartDate, roomEndDate) ||
+            newScheduleStartDate.isSame(roomStartDate) || newScheduleStartDate.isSame(roomEndDate) ||
+            newScheduleEndDate.isBetween(roomStartDate, roomEndDate) ||
+            newScheduleEndDate.isSame(roomStartDate) || newScheduleEndDate.isSame(roomEndDate)
+        ){
             isBooked =  true
         }
     })
