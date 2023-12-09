@@ -7,6 +7,7 @@
     <list default="true" id="67476276-5ccd-42a0-afcf-7045c4784097" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/ScheduleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ScheduleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Schedule.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <workItem from="1701501128190" duration="11736000" />
       <workItem from="1701985803436" duration="1707000" />
       <workItem from="1702052666035" duration="8098000" />
-      <workItem from="1702101435461" duration="1338000" />
+      <workItem from="1702101435461" duration="2994000" />
     </task>
     <servers />
   </component>

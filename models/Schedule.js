@@ -30,6 +30,9 @@ const Schedule = sequelize.define('Schedule', {
     price: {
         type: DataTypes.INTEGER,
         defaultValue: 0
+    },
+    comment: {
+        type: DataTypes.STRING,
     }
 }, {
     timestamps: true

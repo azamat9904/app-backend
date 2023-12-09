@@ -72,6 +72,7 @@ const addSchedule = async (req, res) => {
             startDate: schedule.startDate,
             endDate: schedule.endDate,
             price: schedule.price,
+            comment: schedule.comment || ''
         })
 
         res.status(201).json({
