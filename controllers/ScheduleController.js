@@ -3,13 +3,13 @@ const { Room} = require("../models/Room");
 const moment = require('moment')
 
 const isScheduleBooked = (startDate, endDate, schedules) => {
-    const newScheduleStartDate = moment(startDate).set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
-    const newScheduleEndDate = moment(endDate).set('hour', 0).set({ hours: 0,minutes: 0, seconds: 0})
+    const newScheduleStartDate = moment(startDate)
+    const newScheduleEndDate = moment(endDate)
     let isBooked = false
 
     schedules.forEach((foundRoomSchedule) => {
-        const roomStartDate =  moment(foundRoomSchedule.dataValues.startDate).set({ hours: 0,minutes: 0, seconds: 0})
-        const roomEndDate = moment(foundRoomSchedule.dataValues.endDate).set({ hours: 0,minutes: 0, seconds: 0})
+        const roomStartDate =  moment(foundRoomSchedule.dataValues.startDate)
+        const roomEndDate = moment(foundRoomSchedule.dataValues.endDate)
 
         if(roomStartDate.isBetween(newScheduleStartDate, newScheduleEndDate) ||
             roomStartDate.isSame(newScheduleStartDate) || roomStartDate.isSame(newScheduleEndDate) ||
@@ -112,7 +112,7 @@ const addSchedule = async (req, res) => {
                 scheduleId: id,
             },
         })
-    } catch (err) {
+    } catch (e) {
         res.status(500).json({
             message:
                 'Запрос завершился неудачно:' + e.message,

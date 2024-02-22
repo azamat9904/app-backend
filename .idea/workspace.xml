@@ -7,7 +7,6 @@
     <list default="true" id="67476276-5ccd-42a0-afcf-7045c4784097" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/ScheduleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ScheduleController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Schedule.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
   <component name="ProjectId" id="2Yw3fUw3Ik3ExuJaHIJp6jn9Hwv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -61,6 +64,7 @@
       <workItem from="1701985803436" duration="1707000" />
       <workItem from="1702052666035" duration="8098000" />
       <workItem from="1702101435461" duration="2994000" />
+      <workItem from="1708614760640" duration="33000" />
     </task>
     <servers />
   </component>
