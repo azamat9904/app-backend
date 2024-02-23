@@ -15,6 +15,11 @@ app.use(
 
 app.use(express.json())
 app.use(router)
+app.use((req, res) => {
+    res.json({
+        message: "Hello world"
+    })
+})
 
 sequelize
     .authenticate()
