@@ -1,7 +1,10 @@
 const { Sequelize } = require('sequelize')
 const {config } = require('../config/index')
-const sequelize = new Sequelize(`mysql://${config.DB_USERNAME}:${config.DB_PASSWORD}@monorail.proxy.rlwy.net:${config.DB_PORT}/railway`)
+
+const sequelize = new Sequelize(`${config.DB_MYSQL_URL}`)
 
 //test
 
 module.exports.sequelize = sequelize
+
+
