@@ -57,7 +57,7 @@ const addSchedule = async (req, res) => {
         let isBooked = isScheduleBooked(schedule.startDate, schedule.endDate, foundRoomSchedules)
 
         if(isBooked){
-            return res.status(403).json({
+            return res.status(400).json({
                 status: false,
                 message: 'Уже есть запись на эту дату',
                 result: null

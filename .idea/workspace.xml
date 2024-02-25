@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67476276-5ccd-42a0-afcf-7045c4784097" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/UserController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ScheduleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ScheduleController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +30,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/ANamiyaly/Desktop/schedule-backend/middleware",
+    "last_opened_file_path": "/Users/ANamiyaly/Desktop/schedule-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -77,7 +69,8 @@
       <workItem from="1708614760640" duration="489000" />
       <workItem from="1708675873019" duration="677000" />
       <workItem from="1708706779218" duration="3972000" />
-      <workItem from="1708753775969" duration="1558000" />
+      <workItem from="1708753775969" duration="2176000" />
+      <workItem from="1708838532706" duration="249000" />
     </task>
     <servers />
   </component>
