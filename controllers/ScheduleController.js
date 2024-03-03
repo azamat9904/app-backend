@@ -112,10 +112,10 @@ const addSchedule = async (req, res) => {
                 scheduleId: id,
             },
         })
-    } catch (e) {
+    } catch (err) {
         res.status(500).json({
             message:
-                'Запрос завершился неудачно:' + e.message,
+                'Запрос завершился неудачно:' + err.message,
             status: 'error',
             result: null,
     })

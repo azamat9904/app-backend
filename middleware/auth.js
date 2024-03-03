@@ -29,7 +29,7 @@ const verifyToken = (
     try {
         req.user = jwt.verify(token, config.JWT_SECRET)
     } catch (err) {
-        return res.status(403).json({
+        return res.status(401).json({
             message: 'Невалидный токен',
             status: 'error',
             result: null,

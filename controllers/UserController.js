@@ -7,7 +7,6 @@ const register = async (req, res) => {
     try {
         const { name = '', surname = '', login, password } = req.body
 
-        console.log(name, surname, login, password)
         if (!(login && password)) {
             return res.status(400).json({
                 message:
