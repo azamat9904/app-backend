@@ -17,4 +17,5 @@ const Room = sequelize.define('Room', {
    timestamps: true
 });
 
+
 module.exports.Room = Room
