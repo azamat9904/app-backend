@@ -9,6 +9,9 @@ const Room = sequelize.define('Room', {
     },
     name: {
         type: DataTypes.STRING
+    },
+    description: {
+        type: DataTypes.STRING
     }
 }, {
    timestamps: true
