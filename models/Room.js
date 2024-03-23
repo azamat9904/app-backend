@@ -1,5 +1,6 @@
 const { DataTypes} = require('sequelize');
-const { sequelize } = require('../core/db')
+const { sequelize } = require('./index.js')
+
 
 const Room = sequelize.define('Room', {
     id: {

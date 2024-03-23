@@ -1,5 +1,5 @@
 const { DataTypes} = require('sequelize');
-const { sequelize } = require('../core/db')
+const { sequelize } = require('./index')
 const { Room } = require('./Room');
 
 const Schedule = sequelize.define('Schedule', {

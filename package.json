@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "build": "echo abc",
-    "start": "node app.js"
+    "build": "pm2 start app.js",
+    "start": "node app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "logs": "pm2 logs"
   },
   "keywords": [],
   "author": "",
