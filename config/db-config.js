@@ -1,29 +1,31 @@
+const dotenv = (require("dotenv").config()).parsed
+
 const dbConfig = {
   "development": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
-    "dialect":process.env.DB_DIALECT,
-    "port": process.env.DB_PORT
+    "username": dotenv.DB_USERNAME,
+    "password": dotenv.DB_PASSWORD,
+    "database": dotenv.DB_NAME,
+    "host": dotenv.DB_HOST,
+    "dialect":dotenv.DB_DIALECT,
+    "port": dotenv.DB_PORT
   },
   "test": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
-    "dialect":process.env.DB_DIALECT,
-    "port": process.env.DB_PORT
+    "username": dotenv.DB_USERNAME,
+    "password": dotenv.DB_PASSWORD,
+    "database": dotenv.DB_NAME,
+    "host": dotenv.DB_HOST,
+    "dialect":dotenv.DB_DIALECT,
+    "port": dotenv.DB_PORT
   },
   "production": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
-    "dialect":process.env.DB_DIALECT,
-    "port": process.env.DB_PORT
+    "username": dotenv.DB_USERNAME,
+    "password": dotenv.DB_PASSWORD,
+    "database": dotenv.DB_NAME,
+    "host": dotenv.DB_HOST,
+    "dialect":dotenv.DB_DIALECT,
+    "port": dotenv.DB_PORT
   }
 }
 
 
-module.exports = dbConfig
+module.exports = dbConfig;
