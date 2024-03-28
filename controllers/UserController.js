@@ -72,21 +72,24 @@ const login = async (req, res) => {
         }
 
         const user = await Users.findOne({ where: { login: login } })
-        const isPasswordEqual = await bcrypt.compare(password, user.password)
 
-        if (user && isPasswordEqual) {
-            const token = jwt.sign(
-                { id: user.id, login, name: user.name, surname: user.surname },
-                config.JWT_SECRET
-            )
+        if(user){
+            const isPasswordEqual = await bcrypt.compare(password, user.password)
 
-            return res.status(200).json({
-                message: 'Запрос успешно отработал',
-                status: 'success',
-                result: {
-                    token: token,
-                },
-            })
+            if (isPasswordEqual) {
+                const token = jwt.sign(
+                    { id: user.id, login, name: user.name, surname: user.surname },
+                    config.JWT_SECRET
+                )
+
+                return res.status(200).json({
+                    message: 'Запрос успешно отработал',
+                    status: 'success',
+                    result: {
+                        token: token,
+                    },
+                })
+            }
         }
 
         res.status(400).json({
