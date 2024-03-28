@@ -8,6 +8,7 @@
     "start": "nodemon app.js",
     "build": "npx pm2 start app.js",
     "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
     "logs": "pm2 logs"
   },
   "keywords": [],
@@ -24,9 +25,11 @@
     "moment": "^2.29.4",
     "mysql2": "^3.6.5",
     "nodemon": "^3.0.1",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
     "pm2": "^5.3.1",
     "prettier": "^3.1.0",
-    "sequelize": "^6.35.1",
+    "sequelize": "^6.37.1",
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {

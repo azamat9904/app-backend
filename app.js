@@ -15,7 +15,7 @@ app.use(
 
 app.use(express.json())
 app.use(router)
-app.use((req, res) => {
+app.use('/check', (req, res) => {
     res.json({
         message: "Hello world"
     })
