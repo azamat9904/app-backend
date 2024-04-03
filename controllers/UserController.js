@@ -32,7 +32,7 @@ const register = async (req, res) => {
         const user = await Users.create({
             name,
             surname,
-            login: login.toLowerCase(),
+            login: login,
             password: encryptedPassword,
         })
 
@@ -73,7 +73,7 @@ const login = async (req, res) => {
 
         const user = await Users.findOne({ where: { login: login } })
 
-        if(user){
+
             const isPasswordEqual = await bcrypt.compare(password, user.password)
 
             if (isPasswordEqual) {
@@ -90,7 +90,7 @@ const login = async (req, res) => {
                     },
                 })
             }
-        }
+
 
         res.status(400).json({
             message: 'Запрос завершился ошибкой, неверные данные',
